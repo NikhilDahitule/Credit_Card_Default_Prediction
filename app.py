@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,Response
+from flask import Flask, request, render_template, Response
 import pickle
 from training_Validation_Insertion import train_validation
 from trainingModel import trainModel
@@ -9,12 +9,13 @@ import sklearn
 # model creation
 model = pickle.load(open("SingleValueModels/rfc.pkl","rb"))
 
-app = Flask(__name__,template_folder="templates")
+app = Flask(__name__, template_folder="templates")
 
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/', methods=['POST', 'GET'])
 def Home():
     return render_template('index.html') 
+
 
 @app.route("/SinglValuePrediction",methods=['POST','GET'])
 def SinglValuePrediction():
@@ -89,9 +90,8 @@ def Prediction():
         return Response("Error Occurred! %s" % e)
 
 
-
 if __name__ == "__main__":
-    app.run(debug=True,port=6001)
+    app.run(debug=True, port=6001)
 
 
 
