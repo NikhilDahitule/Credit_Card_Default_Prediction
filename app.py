@@ -7,7 +7,7 @@ from predictFromModel import prediction
 import sklearn
 
 # model creation
-model = pickle.load(open("SingleValueModels/rfc.pkl","rb"))
+model = pickle.load(open("SingleValueModels/rfc.pkl", "rb"))
 
 app = Flask(__name__, template_folder="templates")
 
@@ -17,7 +17,7 @@ def Home():
     return render_template('index.html') 
 
 
-@app.route("/SinglValuePrediction",methods=['POST','GET'])
+@app.route("/SinglValuePrediction", methods=['POST', 'GET'])
 def SinglValuePrediction():
     prediction_list = []
     gender = ""
